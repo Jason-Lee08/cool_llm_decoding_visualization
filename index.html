@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Decoding Strategies Visualization</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>LLM Decoding Strategies</h1>
+        <p class="subtitle">Interactive visualization of different token generation methods</p>
+
+        <div class="tabs">
+            <button class="tab-button active" data-tab="greedy">Greedy Decoding</button>
+            <button class="tab-button" data-tab="beam">Beam Search</button>
+            <button class="tab-button" data-tab="nucleus">Nucleus Sampling (Top-p)</button>
+            <button class="tab-button" data-tab="topk">Top-k Sampling</button>
+        </div>
+
+        <div class="tab-content">
+            <!-- Greedy Decoding Tab -->
+            <div id="greedy" class="tab-pane active">
+                <h2>Greedy Decoding</h2>
+                <p class="description">Selects the token with the highest probability at each step.</p>
+                <div class="controls">
+                    <button id="greedy-start" class="btn">Start Animation</button>
+                    <button id="greedy-reset" class="btn">Reset</button>
+                </div>
+                <div class="visualization">
+                    <div class="generated-text">
+                        <strong>Generated Text:</strong>
+                        <div id="greedy-text" class="text-output"></div>
+                    </div>
+                    <div id="greedy-viz" class="token-viz"></div>
+                </div>
+            </div>
+
+            <!-- Beam Search Tab -->
+            <div id="beam" class="tab-pane">
+                <h2>Beam Search</h2>
+                <p class="description">Maintains multiple candidate sequences (beams) and explores the most promising paths.</p>
+                <div class="controls">
+                    <label>Beam Width: <span id="beam-width-value">3</span></label>
+                    <input type="range" id="beam-width" min="2" max="5" value="3">
+                    <button id="beam-start" class="btn">Start Animation</button>
+                    <button id="beam-reset" class="btn">Reset</button>
+                </div>
+                <div class="visualization">
+                    <div class="generated-text">
+                        <strong>Beams:</strong>
+                        <div id="beam-text" class="text-output"></div>
+                    </div>
+                    <div id="beam-viz" class="token-viz"></div>
+                </div>
+            </div>
+
+            <!-- Nucleus Sampling Tab -->
+            <div id="nucleus" class="tab-pane">
+                <h2>Nucleus Sampling (Top-p)</h2>
+                <p class="description">Samples from the smallest set of tokens whose cumulative probability exceeds p.</p>
+                <div class="controls">
+                    <label>p value: <span id="p-value-display">0.9</span></label>
+                    <input type="range" id="p-value" min="0.5" max="1.0" step="0.05" value="0.9">
+                    <button id="nucleus-start" class="btn">Start Animation</button>
+                    <button id="nucleus-reset" class="btn">Reset</button>
+                </div>
+                <div class="visualization">
+                    <div class="generated-text">
+                        <strong>Generated Text:</strong>
+                        <div id="nucleus-text" class="text-output"></div>
+                    </div>
+                    <div id="nucleus-viz" class="token-viz"></div>
+                </div>
+            </div>
+
+            <!-- Top-k Sampling Tab -->
+            <div id="topk" class="tab-pane">
+                <h2>Top-k Sampling</h2>
+                <p class="description">Samples from the k tokens with highest probabilities.</p>
+                <div class="controls">
+                    <label>k value: <span id="k-value-display">5</span></label>
+                    <input type="range" id="k-value" min="2" max="10" value="5">
+                    <button id="topk-start" class="btn">Start Animation</button>
+                    <button id="topk-reset" class="btn">Reset</button>
+                </div>
+                <div class="visualization">
+                    <div class="generated-text">
+                        <strong>Generated Text:</strong>
+                        <div id="topk-text" class="text-output"></div>
+                    </div>
+                    <div id="topk-viz" class="token-viz"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
