@@ -39,16 +39,15 @@
             <!-- Beam Search Tab -->
             <div id="beam" class="tab-pane">
                 <h2>Beam Search</h2>
-                <p class="description">Maintains multiple candidate sequences (beams) and explores the most promising paths.</p>
+                <p class="description">Maintains the top 3 candidate sequences (beam width = 3) and explores the most promising paths by ranking all possibilities.</p>
                 <div class="controls">
-                    <label>Beam Width: <span id="beam-width-value">3</span></label>
-                    <input type="range" id="beam-width" min="2" max="5" value="3">
+                    <label><strong>Beam Width: 3</strong></label>
                     <button id="beam-start" class="btn">Start Animation</button>
                     <button id="beam-reset" class="btn">Reset</button>
                 </div>
                 <div class="visualization">
                     <div class="generated-text">
-                        <strong>Beams:</strong>
+                        <strong>Final Top 3 Sequences:</strong>
                         <div id="beam-text" class="text-output"></div>
                     </div>
                     <div id="beam-viz" class="token-viz"></div>
