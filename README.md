@@ -2,6 +2,8 @@
 
 An interactive web-based visualization demonstrating how different token generation (decoding) strategies work in Large Language Models (LLMs). This project runs entirely in the browser with no backend required, making it perfect for GitHub Pages hosting.
 
+Check it out here: https://jason-lee08.github.io/cool_llm_decoding_visualization/
+
 ## Overview
 
 This website provides animated, step-by-step visualizations of four common decoding strategies used in LLMs:
